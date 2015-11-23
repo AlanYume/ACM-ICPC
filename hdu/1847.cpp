@@ -4,6 +4,8 @@
 #include <cstring>
 #include <string>
 #include <set>
+#include <cstdio>
+#include <stdio.h>
 using namespace std;
 
 const int kMaxN = 1000 + 16;

@@ -14,6 +14,8 @@
 #include <cstdio>
 #include <algorithm>
 #include <vector>
+#include <cstring>
+#include <string.h>
 using namespace std;
 
 const int kMaxN = 400 + 16;
