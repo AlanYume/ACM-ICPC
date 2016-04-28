@@ -1,4 +1,4 @@
-package com.alanyume.acm.poj3069;
+package poj.q3069;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

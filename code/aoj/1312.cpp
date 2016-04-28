@@ -1,4 +1,4 @@
-/*************** Hash ¿éÄ£Ê½Æ¥Åä *********************/
+/*************** Hash å—æ¨¡å¼åŒ¹é… *********************/
 #include <iostream>
 #include <cstdio>
 #include <cstring>
@@ -12,8 +12,8 @@ const int kMaxH = 1000 + 16;
 const int kMaxP = 100 + 16;
 
 int w, h, p;
-bool field[kMaxH][kMaxW]; //Æ¥Åä¶ÔÏó
-bool patterns[8][kMaxH][kMaxW]; //Æ¥ÅäÄ£Ê½
+bool field[kMaxH][kMaxW]; //åŒ¹é…å¯¹è±¡
+bool patterns[8][kMaxH][kMaxW]; //åŒ¹é…æ¨¡å¼
 vector<ull> patterns_val;
 
 ull hash_m[kMaxH][kMaxW], tmp[kMaxW][kMaxH];
@@ -31,9 +31,9 @@ void Compute_hash(bool a[kMaxH][kMaxW], int n, int m){
 	const ull B1 = 9973;
 	const ull B2 = 100000007;
 
-	ull t1 = 1; //B1 µÄ p´Î·½
+	ull t1 = 1; //B1 çš„ pæ¬¡æ–¹
 	for(int j = 0; j < p; j++) t1 *= B1;
-	//°´ĞĞ·½Ïò¼ÆËã¹şÏµ
+	//æŒ‰è¡Œæ–¹å‘è®¡ç®—å“ˆç³»
 	for(int i = 0; i < n; i++){
 		ull e = 0;
 		for(int j = 0; j < p; j++) e = e * B1 + a[i][j];
@@ -44,9 +44,9 @@ void Compute_hash(bool a[kMaxH][kMaxW], int n, int m){
 		}
 	}
 
-	ull t2 = 1; //B2 µÄ p´Î·½
+	ull t2 = 1; //B2 çš„ pæ¬¡æ–¹
 	for(int i = 0; i < p; i++) t2 *= B2;
-	//°´ÁĞ·½Ïò¼ÆËã¹şÏµ
+	//æŒ‰åˆ—æ–¹å‘è®¡ç®—å“ˆç³»
 	for(int j = 0; j + p <= m; j++){
 		ull e = 0;
 		for(int i = 0; i < p; i++) e = e * B2 + tmp[i][j];
@@ -85,7 +85,7 @@ int main(){
 	while(~scanf("%d %d %d", &w, &h, &p)){
 		if(w == 0 && h == 0 && p == 0) break;
 
-		//¶ÁÈë²¢Éú³ÉÆ¥Åä¿é
+		//è¯»å…¥å¹¶ç”ŸæˆåŒ¹é…å—
 		for(int i = 0; i < h; i++){
 			char str[kMaxW];
 			scanf("%s", str);
@@ -97,7 +97,7 @@ int main(){
 			}
 		}
 
-		//¶ÁÈë²¢Éú³ÉÄ£Ê½¿é
+		//è¯»å…¥å¹¶ç”Ÿæˆæ¨¡å¼å—
 		for(int i = 0; i < p; i++){
 			char str[kMaxP];
 			scanf("%s", str);
@@ -109,8 +109,8 @@ int main(){
 			}
 		}
 
-		//×ªÒåÉú³ÉÆäËû7ÖĞÄ£Ê½¿é
-		//ÄæÊ±ÕëĞı×ª
+		//è½¬ä¹‰ç”Ÿæˆå…¶ä»–7ä¸­æ¨¡å¼å—
+		//é€†æ—¶é’ˆæ—‹è½¬
 		for(int k = 1; k < 4; k++){
 			for(int i = 0; i < p; i++){
 				for(int j = 0; j < p; j++){
@@ -118,7 +118,7 @@ int main(){
 				}
 			}
 		}
-		//¾µÏñ¶Ô³Æ
+		//é•œåƒå¯¹ç§°
 		for(int k = 0; k < 4; k++){
 			for(int i = 0; i < p; i++){
 				for(int j = 0; j < p; j++){

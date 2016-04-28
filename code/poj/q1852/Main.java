@@ -1,4 +1,4 @@
-package com.alanyume.acm.poj1852;
+package poj.q1852;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -8,7 +8,7 @@ public class Main {
     static int length, ants, pos[];
     static Scan scan = new Scan();
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         int testCases = scan.nextInt();
         while (testCases-- != 0) {
             reader();
@@ -27,7 +27,7 @@ public class Main {
 
     static void solve() {
         int minTime = Integer.MIN_VALUE, maxTime = Integer.MIN_VALUE;
-        for (int position : pos) {
+        for (final int position : pos) {
             minTime = Math.max(minTime, Math.min(position, length - position));
             maxTime = Math.max(maxTime, Math.max(position, length - position));
         }
@@ -50,7 +50,7 @@ class Scan {
         while (tok == null || !tok.hasMoreElements()) {
             try {
                 tok = new StringTokenizer(buffer.readLine());
-            } catch (Exception e) {
+            } catch (final Exception e) {
                 return false;
             }
         }
